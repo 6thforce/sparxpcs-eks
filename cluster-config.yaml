@@ -1,0 +1,33 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks-windows-mng-fg-mix
+  region: us-west-2
+  version: '1.30'
+  
+managedNodeGroups:
+  - name: windows-managed-ng-2022
+    amiFamily: WindowsServer2022FullContainer
+    instanceType: t3.large
+    volumeSize: 50
+    minSize: 1
+    maxSize: 4
+    taints:
+      - key: os
+        value: "windows"
+        effect: NoSchedule
+
+fargateProfiles:
+  - name: fargate
+    selectors:
+      - namespace: default
+      - namespace: kube-system
+
+cloudWatch:
+ clusterLogging:
+   enableTypes: ["*"]
+    # Sets the number of days to retain the logs for (see [CloudWatch docs](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html#API_PutRetentionPolicy_RequestSyntax)).
+    # By default, log data is stored in CloudWatch Logs indefinitely.
+   logRetentionInDays: 60
