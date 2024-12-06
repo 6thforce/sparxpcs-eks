@@ -1,4 +1,4 @@
-# # To deploy a Sparx PCS application on AWS Elastic Kubernetes Service
+# To deploy a Sparx PCS application on AWS Elastic Kubernetes Service
 
 
 ![image](https://github.com/user-attachments/assets/d9865ee0-2808-4ba9-a3a0-847bb4ffd8d3)
