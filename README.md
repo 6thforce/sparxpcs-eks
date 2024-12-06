@@ -1,7 +1,7 @@
 # To deploy a Sparx PCS application on AWS Elastic Kubernetes Service
 
 
-<img width="347" alt="image" src="https://github.com/user-attachments/assets/7cb2ac01-a281-4075-9319-0b313fa376f9">
+<img width="547" alt="image" src="https://github.com/user-attachments/assets/7cb2ac01-a281-4075-9319-0b313fa376f9">
 
 
 **Prerequisites**
