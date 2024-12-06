@@ -19,7 +19,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 eksctl info
 ```
 
-Refer - https://eksctl.io/installation/
+Refer to [this link](https://eksctl.io/installation/)
 
 ## Install AWS CLI in AWS CloudShell
 
