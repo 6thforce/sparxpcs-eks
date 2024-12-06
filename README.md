@@ -49,7 +49,7 @@ Refer - https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#li
 Clone the below URL and create a file named cluster.config.yaml in CloudShell.
 
 ```
-https://github.com/kohlidevops/sparx-pcs-eks/blob/main/cluster-config.yaml
+https://github.com/6thforce/sparxpcs-eks/blob/main/cluster-config.yaml
 ```
 
 To change the region, instance type, volume size in cluster-config.yaml if need.
@@ -143,13 +143,13 @@ kubectl get pods -A
 To deploy the namespace, use the manifest file available at the following link:
 
 ```
-https://github.com/kohlidevops/sparx-pcs-eks/blob/main/namespace.yaml
+https://github.com/6thforce/sparxpcs-eks/blob/main/namespace.yaml
 ```
 
 To deploy and verify the namespace
 
 ```
-kubectl apply -f https://github.com/kohlidevops/sparx-pcs-eks/blob/main/namespace.yaml
+kubectl apply -f https://github.com/6thforce/sparxpcs-eks/blob/main/namespace.yaml
 kubectl get namespace
 ```
 
@@ -158,13 +158,13 @@ kubectl get namespace
 To deploy the storageclass, use the manifest file available at the following link:
 
 ```
-https://github.com/kohlidevops/sparx-pcs-eks/blob/main/storage-class.yaml
+https://github.com/6thforce/sparxpcs-eks/blob/main/storage-class.yaml
 ```
 
 To deploy and verify the storageclass
 
 ```
-kubectl apply -f https://github.com/kohlidevops/sparx-pcs-eks/blob/main/storage-class.yaml
+kubectl apply -f https://github.com/6thforce/sparxpcs-eks/blob/main/storage-class.yaml
 kubectl get sc
 ```
 
@@ -173,13 +173,13 @@ kubectl get sc
 To deploy the persistent volume claim, use the manifest file available at the following link:
 
 ```
-https://github.com/kohlidevops/sparx-pcs-eks/blob/main/persistent-volume-claim.yaml
+https://github.com/6thforce/sparxpcs-eks/blob/main/persistent-volume-claim.yaml
 ```
 
 To deploy and verify the persistent volume claim status
 
 ```
-kubectl apply -f https://github.com/kohlidevops/sparx-pcs-eks/blob/main/persistent-volume-claim.yaml
+kubectl apply -f https://github.com/6thforce/sparxpcs-eks/blob/main/persistent-volume-claim.yaml
 kubectl get pvc -n windows
 ```
 
@@ -265,7 +265,7 @@ Value: 1
 To deploy a pcs workload with replicasets, deployment and service using the following command, run:
 
 ```
-kubectl apply -f https://github.com/kohlidevops/sparx-pcs-eks/blob/main/pcs-workload.yaml
+kubectl apply -f https://github.com/6thforce/sparxpcs-eks/blob/main/pcs-workload.yaml
 kubectl get pods -o wide -n windows
 kubectl get svc
 ```
@@ -275,7 +275,7 @@ kubectl get svc
 To deploy a Ingress service to map a loadbalancer to pcs application using the following command, run:
 
 ```
-kubectl apply -f https://github.com/kohlidevops/sparx-pcs-eks/blob/main/ingress.yaml
+kubectl apply -f https://github.com/6thforce/sparxpcs-eks/blob/main/ingress.yaml
 kubectl get ingress -n windows
 ```
 
