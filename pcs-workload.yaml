@@ -1,0 +1,70 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pcsimage-deployment
+  namespace: windows
+spec:
+  selector:
+    matchLabels:
+      app: pcsimage
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pcsimage
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: pcsimage-container
+        image: sparxsys976/pcs
+        ports:
+        - name: http
+          containerPort: 1805
+        imagePullPolicy: IfNotPresent
+        command:
+        - powershell.exe
+        - -command
+        - "Add-WindowsFeature Web-Server; Invoke-WebRequest -UseBasicParsing -Uri 'https://dotnetbinaries.blob.core.windows.net/servicemonitor/2.0.1.6/ServiceMonitor.exe' -OutFile 'C:\\ServiceMonitor.exe'; echo '<html><body><br/><br/><center><h1>Amazon EKS cluster with Windows managed nodegroup and Fargate linux nodes!</h1></center></body><html>' > C:\\inetpub\\wwwroot\\iisstart.htm; C:\\ServiceMonitor.exe 'w3svc'; "
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - powershell.exe
+              - -command
+              - "C:\\pcsservice\\pcslogs.ps1"
+        volumeMounts:
+        - mountPath: "C:\\data"
+          name: shared-storage
+      nodeSelector:
+        kubernetes.io/os: windows
+        kubernetes.io/arch: amd64
+      tolerations:
+      - key: "os"
+        operator: "Equal"
+        value: "windows"
+        effect: "NoSchedule"
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: ebs-pvc-windows  # PVC name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pcsimage-service
+  namespace: windows
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 1805
+  selector:
+    app: pcsimage
+    tier: backend
+    track: stable
+  sessionAffinity: None
+  type: ClusterIP
