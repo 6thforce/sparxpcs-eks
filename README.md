@@ -29,7 +29,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-Refer - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+Refer to [this link](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 
 ## Install KUBECTL in AWS CloudShell
@@ -41,7 +41,7 @@ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$P
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 ```
 
-Refer - https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#linux_amd64_kubectl
+Refer to [this link](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#linux_amd64_kubectl)
 
 ## To create a EKS Cluster
 
@@ -232,7 +232,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 
-Refer - https://helm.sh/docs/intro/install/
+Refer to [this link](https://helm.sh/docs/intro/install/)
 
 ## To install a AWS Application Loadbalancer controller
 
