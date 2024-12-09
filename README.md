@@ -269,6 +269,15 @@ kubectl get pods -o wide -n windows
 kubectl get svc
 ```
 
+## To copy a server.pem file to the shared persistent volume
+
+To copy a server.pem file to container mounted shared drive using the following command, run:
+
+```
+kubectl get pods -o wide -n windows
+kubectl cp ./server.pem <pod-name>:/C:/pcsservice/Service/shared/server.pem
+```
+
 ## To deploy a Ingress service manifest
 
 To deploy a Ingress service to map a loadbalancer to pcs application using the following command, run:
