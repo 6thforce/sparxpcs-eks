@@ -37,7 +37,8 @@ spec:
               - -command
               - "C:\\pcsservice\\pcslogs.ps1"
         volumeMounts:
-        - mountPath: "C:\\data"
+#        - mountPath: "C:\\data"
+        - mountPath: "C:\\pcsservice\\Service\\shared"
           name: shared-storage
       nodeSelector:
         kubernetes.io/os: windows
